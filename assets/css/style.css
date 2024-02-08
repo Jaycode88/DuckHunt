@@ -12,4 +12,55 @@ body {
     flex-wrap: wrap;
     margin: 0 auto;
     background: url("/assets/images/1000pxwidth-background-dall-e.webp");
+    position: relative;
 }
+
+.duck {
+    width: 100px;
+    height: 100px;
+    background-image: url(../images/100pxwidth-duck-dall-e.png);
+    background-size: cover;
+    transition: top 0.5s, left 0.5s; /* smooth movement simulation */
+    margin: 10px;
+    position: absolute;
+    display: none;
+}
+
+/* duck starting positions */
+
+#duck1 {
+    top: 30%;
+    left: 30%;
+    display: flex;
+}
+
+#duck2 {
+    top: 30%;
+    left: 75%;
+    display: flex;
+}
+
+#duck3 {
+    top: 10%;
+    left: 45%;
+    display: flex;
+}
+
+#duck4 {
+    top: 80%;
+    left: 10%;
+    display: flex;
+}
+
+#duck5 {
+    top: 50%;
+    left: 60%;
+    display: flex;
+}
+
+#duck6 {
+    top: 40%;
+    left: 15%;
+    display: flex;
+}
+
