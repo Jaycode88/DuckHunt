@@ -157,15 +157,15 @@ body {
 
 /* hover/shoot events */
 
-#duck1:hover,
-#duck2:hover,
-#duck3:hover,
-#duck4:hover,
-#duck5:hover,
-#duck6:hover,
-#duck7:hover,
-#duck8:hover,
-#duck9:hover {
+#duck1:focus,
+#duck2:focus,
+#duck3:focus,
+#duck4:focus,
+#duck5:focus,
+#duck6:focus,
+#duck7:focus,
+#duck8:focus,
+#duck9:focus {
     animation-play-state: paused;
     opacity:0; filter:alpha(opacity=0);
     
