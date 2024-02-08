@@ -1,0 +1,15 @@
+/* Body overflow hidden to stop horizontal scroll */
+body {
+	overflow-x: hidden;
+	min-height: 100vh;
+}
+
+/* Game Area */
+.game-area {
+    width: 1000px;
+    height: 571px;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    background: url("/assets/images/1000pxwidth-background-dall-e.webp");
+}
