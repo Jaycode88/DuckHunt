@@ -157,16 +157,15 @@ body {
 
 /* hover/shoot events */
 
-#duck1:focus,
-#duck2:focus,
-#duck3:focus,
-#duck4:focus,
-#duck5:focus,
-#duck6:focus,
-#duck7:focus,
-#duck8:focus,
-#duck9:focus {
+#duck1-checkbox:checked + label,
+#duck2-checkbox:checked + label,
+#duck3-checkbox:checked + label,
+#duck4-checkbox:checked + label,
+#duck5-checkbox:checked + label,
+#duck6-checkbox:checked + label,
+#duck7-checkbox:checked + label,
+#duck8-checkbox:checked + label,
+#duck9-checkbox:checked + label {
     animation-play-state: paused;
     opacity:0; filter:alpha(opacity=0);
-    
 }
