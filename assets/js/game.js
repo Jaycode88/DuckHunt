@@ -26,11 +26,19 @@ import { sineWave } from './routes/sinewave.js';
 import { customRoute1 } from './routes/custom1.js';
 import { customRoute2 } from './routes/custom2.js';
 import { customRoute3 } from './routes/custom3.js';
+import { customRoute4 } from './routes/custom4.js';
+import { customRoute5 } from './routes/custom5.js';
 
 // Array of route functions for the duck to follow
 const routes = [
     
+    customRoute5,
+    customRoute4,
     customRoute3,
+    customRoute2,
+    customRoute1,
+    sineWave,
+    diamondRoute,
 ];
 
 /**
@@ -40,7 +48,7 @@ class Duck {
     constructor() {
         // Initialize the duck's position and route
         this.t = 0; // Parameter to track the position along the route (0 to 1)
-        this.speed = 0.002 + Math.random() * 0.004; // Slower speed of the duck along the route
+        this.speed = 0.001 + Math.random() * 0.002; // Slower speed of the duck along the route
 
         this.route = routes[Math.floor(Math.random() * routes.length)]; // Randomly select a route
 
