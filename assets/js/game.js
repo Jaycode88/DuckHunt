@@ -23,12 +23,14 @@ function updateScore() {
  */
 import { diamondRoute } from './routes/diamondRoute.js';
 import { sineWave } from './routes/sinewave.js';
-import { zigZag } from './routes/zigZag.js';
+import { customRoute1 } from './routes/custom1.js';
+import { customRoute2 } from './routes/custom2.js';
+import { customRoute3 } from './routes/custom3.js';
 
 // Array of route functions for the duck to follow
 const routes = [
     
-    zigZag,
+    customRoute3,
 ];
 
 /**
