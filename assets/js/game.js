@@ -11,6 +11,18 @@ const scoreDisplay = document.getElementById('score');
 canvas.width = 1000;
 canvas.height = 571;
 
+// Add click event listener to the canvas
+canvas.addEventListener('click', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    const x = event.clientX - rect.left;
+    const y = event.clientY - rect.top;
+    if (duck && duck.isHit(x, y)) {
+        duck.isDead = true;
+        score += 2;
+        updateScore();
+    }
+});
+
 /**
  * Update the score display in the HTML.
  */
@@ -92,12 +104,16 @@ class Duck {
         }
     }
 
+    isHit(x, y) {
+        return x >= this.x && x <= this.x + 100 && y >= this.y && y <= this.y + 100;
+    }
+
     /**
      * Update the duck's position and handle boundary conditions.
      */
     update() {
         if (this.isDead) {
-            this.y += this.speed * 200; // Duck falls down when dead (adjust speed if necessary)
+            this.y += this.speed * 700; // Duck falls down when dead (adjust speed if necessary)
             if (this.y > canvas.height) {
                 spawnDuck(); // Respawn a new duck if the current one falls off the canvas
             }
@@ -109,7 +125,7 @@ class Duck {
                 // Update previous position before applying the new one
                 this.prevX = this.x;
                 this.prevY = this.y;
-                
+    
                 this.route(this, this.t); // Update position based on the route
             }
         }
