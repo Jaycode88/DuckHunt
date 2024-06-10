@@ -23,6 +23,8 @@ canvas.addEventListener('click', (event) => {
     }
 });
 
+
+
 /**
  * Update the score display in the HTML.
  */
@@ -57,47 +59,34 @@ const routes = [
  */
 class Duck {
     constructor() {
-        // Initialize the duck's position and route
-        this.t = 0; // Parameter to track the position along the route (0 to 1)
-        this.speed = 0.001 + Math.random() * 0.002; // Slower speed of the duck along the route
-
-        this.route = routes[Math.floor(Math.random() * routes.length)]; // Randomly select a route
-
-        // Load images for the duck facing left, right, and dead
+        this.t = 0;
+        this.speed = 0.001 + Math.random() * 0.002;
+        this.route = routes[Math.floor(Math.random() * routes.length)];
         this.imageLeft = new Image();
         this.imageLeft.src = 'assets/images/flipped-100pxwidth-duck-dall-e.png';
         this.imageRight = new Image();
         this.imageRight.src = 'assets/images/100pxwidth-duck-dall-e.png';
         this.imageDead = new Image();
         this.imageDead.src = 'assets/images/100pxwidth-deadduck-dall-e.png';
-
-        this.isDead = false; // Track whether the duck is dead
-
-        // Track the previous position
+        this.isDead = false;
         this.prevX = null;
         this.prevY = null;
-
-        this.completedRoutes = 0; // Track the number of completed routes
+        this.completedRoutes = 0;
+        this.finalX = null; // Store final fall position
+        this.finalY = null;
     }
 
-    /**
-     * Draw the duck on the canvas.
-     */
     draw() {
-        // Choose the appropriate image based on the duck's direction and state
         let img;
         if (this.isDead) {
             img = this.imageDead;
         } else {
-            // Determine direction based on previous position
             if (this.prevX !== null && this.x !== this.prevX) {
                 img = this.x > this.prevX ? this.imageRight : this.imageLeft;
             } else {
                 img = this.x < canvas.width / 2 ? this.imageRight : this.imageLeft;
             }
         }
-
-        // Draw the image on the canvas
         if (img.complete) {
             ctx.drawImage(img, this.x, this.y, 100, 100);
         } else {
@@ -105,30 +94,28 @@ class Duck {
         }
     }
 
-    /**
-     * Update the duck's position and handle boundary conditions.
-     */
     update() {
         if (this.isDead) {
-            this.y += this.speed * 1000; // Duck falls down when dead (adjust speed if necessary)
+            this.y += this.speed * 2000; // Duck falls down when dead
             if (this.y > canvas.height) {
-                spawnDuck(); // Respawn a new duck if the current one falls off the canvas
+                this.finalX = this.x > 800 ? 700 : this.x; // Adjust position if duck is too close to the right edge
+                this.finalY = canvas.height;
+                handleDogDuckAndNextDuck(this.finalX, this.finalY); // Trigger dogduck and next duck logic
             }
         } else {
-            this.t += this.speed; // Move along the route
+            this.t += this.speed;
             if (this.t > 1) {
-                this.t = 0; // Reset route progress
-                this.completedRoutes++; // Increment completed routes
-
+                this.t = 0;
+                this.completedRoutes++;
                 if (this.completedRoutes >= 3) {
-                    score -= 1; // Deduct 1 point if the duck completes its route 3 times
+                    score -= 1;
                     updateScore();
-                    handleDogAndNextDuck(); // Trigger dog and next duck logic
+                    handleDogAndNextDuck();
                 }
             } else {
                 this.prevX = this.x;
                 this.prevY = this.y;
-                this.route(this, this.t); // Update position based on the route
+                this.route(this, this.t);
             }
         }
     }
@@ -138,39 +125,49 @@ class Duck {
     }
 }
 
+
+
 /**
  * Class representing the game
  */
 class DuckHuntGame {
     constructor() {
-        // Load dog images
         this.dogLaughing = new Image();
         this.dogLaughing.src = 'assets/images/doglaugh.png';
-
-        // Dog state
+        this.dogDuck = new Image();
+        this.dogDuck.src = 'assets/images/dogduck.png';
         this.dogVisible = false;
-        this.dogY = canvas.height; // Start below the canvas
-        this.dogSpeed = 5; // Adjust speed as necessary
-
-        // Game state
-        this.gamePaused = false; // Control game state
+        this.dogDuckVisible = false;
+        this.dogY = canvas.height;
+        this.dogSpeed = 5;
+        this.gamePaused = false;
+        this.dogX = 0;
     }
 
     showDog() {
         this.dogVisible = true;
-        this.dogY = canvas.height; // Start below the canvas
+        this.dogY = canvas.height;
     }
 
     hideDog() {
         this.dogVisible = false;
     }
-}
 
+    showDogDuck(x) {
+        this.dogDuckVisible = true;
+        this.dogX = x;
+        this.dogY = canvas.height;
+    }
+
+    hideDogDuck() {
+        this.dogDuckVisible = false;
+    }
+}
 
 const game = new DuckHuntGame();
 
 /**
- * Handle dog animation and next duck spawning
+ * Handle dog animation and next duck spawning when duck not shot
  */
 function handleDogAndNextDuck() {
     game.gamePaused = true; // Pause the game
@@ -180,32 +177,55 @@ function handleDogAndNextDuck() {
             game.hideDog();
             setTimeout(() => {
                 game.gamePaused = false; // Resume the game
-                spawnDuck(); // Wait another 0.5 second before spawning a new duck
-            }, 500); // Additional delay before spawning the next duck
-        }, 1000); // Dog stays for 1 second
-    }, 500); // Initial delay of 0.5 second before showing the dog
+                spawnDuck(); // Wait another  second before spawning a new duck
+            }, 1000); // Additional delay before spawning the next duck
+        }, 2000); // Dog stays for 2 second
+    }, 1000); // Initial delay of a second before showing the dog
 }
+
+/** Handle dogduck animation and next duck when duck is shot */
+function handleDogDuckAndNextDuck(x, y) {
+    game.gamePaused = true; // Pause the game
+    game.showDogDuck(x); // Show dog with duck at the final fall position
+    setTimeout(() => {
+        game.hideDogDuck();
+        setTimeout(() => {
+            game.gamePaused = false; // Resume the game
+            spawnDuck(); // Spawn a new duck
+        }, 1000); // Additional delay before spawning the next duck
+    }, 2000); // DogDuck stays for 2 seconds
+}
+
+
+
+
 
 /**
  * Update the game state and redraw the canvas.
  */
 function updateGame() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
 
     if (!game.gamePaused && duck) {
-        duck.update(); // Update the duck's position
-        duck.draw(); // Draw the duck on the canvas
+        duck.update();
+        duck.draw();
     }
 
-    // Animate the dog
     if (game.dogVisible) {
         if (game.dogY > canvas.height / 2 - 100) {
-            game.dogY -= game.dogSpeed; // Move the dog up
+            game.dogY -= game.dogSpeed;
         }
         ctx.drawImage(game.dogLaughing, canvas.width / 2 - 100, game.dogY, 200, 200);
     }
 
-    requestAnimationFrame(updateGame); // Repeat the loop for smooth animation
+    if (game.dogDuckVisible) {
+        if (game.dogY > canvas.height / 2 - 100) {
+            game.dogY -= game.dogSpeed;
+        }
+        ctx.drawImage(game.dogDuck, game.dogX, game.dogY, 200, 200);
+    }
+
+    requestAnimationFrame(updateGame);
 }
 
 
