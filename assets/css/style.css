@@ -187,26 +187,29 @@ footer {
 }
 
 
-/* game over Modal styles */
+/* Game over Modal styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1050; /* Ensure it's on top */
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    overflow: auto;
-    background-color: rgb(0, 0, 0);
-    background-color: rgba(0, 0, 0, 0.4);
+    overflow: hidden; /* Hide overflow */
+    background-color: rgba(0, 0, 0, 0.75); /* Darker background for better contrast */
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: rgba(217, 217, 217, 0.9); /* Match the site color scheme */
     margin: 15% auto;
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%;
+    border: 1px solid #000; /* Darker border */
+    width: 50%; /* Adjusted width */
+    max-width: 500px; /* Maximum width for larger screens */
+    border-radius: 10px; /* Rounded corners */
+    text-align: center;
+    font-family: 'VT323', sans-serif; /* Match font */
 }
 
 .close {
@@ -218,7 +221,28 @@ footer {
 
 .close:hover,
 .close:focus {
-    color: black;
+    color: #000;
     text-decoration: none;
     cursor: pointer;
+}
+
+#finalScore {
+    font-size: 24px; /* Larger font for better visibility */
+    margin: 20px 0;
+}
+
+#restartButton {
+    font-family: 'VT323', sans-serif;
+    font-size: 28px !important; /* Adjusted button font size */
+    background-color: #cd1515 !important;
+    color: black !important;
+    padding: 10px 20px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: #000 2px solid !important;
+}
+
+#restartButton:hover {
+    background-color: #a11313 !important; /* Darker on hover */
+    color: white !important;
 }
