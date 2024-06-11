@@ -1,3 +1,14 @@
+/**  make gameCanvas and score visible and hide welcome container when start game is clicked */
+document.getElementById('startGameBtn').addEventListener('click', function() {
+    document.querySelector('.welcome-container').style.display = 'none';
+    document.getElementById('gameCanvasContainer').style.display = 'block';
+    document.querySelector('.score-box').style.display = 'inline-block';
+    // Scroll the game canvas container into view
+    document.getElementById('gameCanvasContainer').scrollIntoView({ behavior: 'smooth' });
+});
+
+
+
 // Get the canvas element and its context for drawing
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');

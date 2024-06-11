@@ -6,6 +6,23 @@ body {
 	overflow-x: hidden;
 	min-height: 100vh;
     background-image: url("/assets/images/pixelretro.webp");
+    position: relative;
+}
+
+.background-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.4); /* Adjust the opacity here */
+    z-index: 1; /* Make sure it's behind the content */
+    pointer-events: none; /* Ensures the overlay doesn't interfere with user interactions */
+}
+
+.content {
+    position: relative;
+    z-index: 2; /* Make sure content is above the overlay */
 }
 
 /* Navigation bar */
@@ -56,6 +73,11 @@ body {
     color: black;
 }
 
+/* Score box */
+.score-box {
+    display: none; /* Hide the score box by default */
+}
+
 .btn {
     font-family: 'VT323', sans-serif;
     font-size: 28px !important;
@@ -70,7 +92,7 @@ body {
     border: #000 2px solid !important;
 }
 
-.btn:hover {
+.btn:hover, .footer-icon:hover {
     background-color: #a11313 !important;  /* Darken the background on hover for better interaction feedback */
     color: white !important; /* Change the text color to white on hover */
 }
@@ -92,6 +114,22 @@ body {
 
 
 /* Game container */
+#gameCanvasContainer {
+    
+    display: none;  /* Hide the container by default */
+    flex-direction: column; /* Arrange children in a column */
+    justify-content: center; /* Center the canvas horizontally */
+    align-items: center; /* Center the canvas vertically */
+    margin: 20px auto; /* Center the container and add vertical margins */
+    max-width: fit-content; /* Fit the container to the content */
+}
+
+.gameCanvasbackground {
+    background-color: rgba(217, 217, 217, 0.9); /* Grey background with 90% opacity */
+    padding: 20px;
+    border-radius: 15px; /* Adjust the radius as needed for rounded corners */
+}
+
 canvas {
     width: 1000px;
     height: 571px;
@@ -102,7 +140,51 @@ canvas {
     position: relative;
 }
 
+/* Footer */
+footer {
+    background-color: #d9d9d9;
+    text-align: center;
+    width: 100%;
+    padding: 5px 0; /* Add padding for spacing */
+    position: relative; /* Change from fixed to relative */
+    margin-top: 10px; /* Add top margin to create space between content and footer */
+    font-family: 'VT323', sans-serif;
+    font-size: 18px;
+    font-weight: bold;
+    
+}
 
+.footer-header {
+    font-weight: bold;
+    font-size: 24px;
+    font-family: 'Press Start 2P', monospace;
+}
+
+.footer-icon {
+    font-size: 28px;
+    color: #000;
+    margin-left: 5px;
+    margin-right: 5px;
+    background-color: #cd1515;
+    padding: 5px 5px; /* Adjust padding as needed */
+    margin: 5px; /* Adjust margin to create separation */
+    border-radius: 5px; /* Optional: add rounded corners */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure the links are displayed as block elements within the inline layout */
+    border: #000 2px solid !important;
+}
+
+.footer-container {
+    max-width: 90%; /* Constrain the width of the content */
+    margin: 0 auto; /* Center the content */
+}
+
+@media (max-width: 768px) {
+    .text-md-start, .text-md-end {
+        text-align: center !important;
+    }
+}
 
 
 /* game over Modal styles */

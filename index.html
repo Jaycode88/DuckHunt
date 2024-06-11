@@ -7,11 +7,12 @@
     <!-- Stylesheets-->
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-  </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Title -->
     <title>Duck Hunt Js Game</title>
 </head>
 <body>
+    <div class="content">
     <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">
@@ -36,26 +37,59 @@
             </div>
         </div>
     </nav>
-
-    <div class="container-fluid text-center heading-container">
+</div>
+    <div class="background-overlay"></div>
+    <div class="content">
+    <div class="container-fluid text-center heading-container mt-3">
         <h1 class="heading-back">Duck Hunt</h1>
         <br>
-        <h2 class="heading-back">A Remake of the NES Classic</h2>
+        <img src="/assets/images/dogduck.png" alt="Dog with Duck" width="200px" class="heading-back">
         <br>
-        <h2 class="heading-back">Score: <span id="score">0</span></h2>
+        <h2 class="heading-back">A Remake of the NES Classic</h2>
     </div>
 
     <div class="container-fluid welcome-container">
         <p>Step back in time and relive the excitement of the iconic NES game, Duck Hunt! We've brought the classic experience back to life, combining the nostalgia of the original with modern web technologies. Enjoy the timeless challenge of shooting ducks with your trusty zapper, now accessible right from your browser.</p>
         <div class="text-center">
             <button type="button" class="btn">How to play</button>
-            <button type="button" class="btn">Start Game</button>
+            <button type="button" class="btn" id="startGameBtn">Start Game</button>
         </div>
     
     </div>
     
     <!-- Game Canvas -->
-    <canvas id="gameCanvas"></canvas>
+    <div id="gameCanvasContainer">
+        <div class="text-center">
+        <h2 class="heading-back score-box">Score: <span id="score">0</span></h2></div>
+        <div class="gameCanvasbackground">
+        <canvas id="gameCanvas"></canvas></div>
+    </div>
+
+
+<!-- Footer -->
+<footer class="text-black mt-5">
+    <div class="container-fluid py-4 footer-container">
+        <div class="row">
+            <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                <p class="footer-header">Duck Hunt</p>
+                <img src="/assets/images/dogduck.png" alt="Logo" width="50px">
+                <p>A Remake of the Nes Classic</p>
+            </div>
+            <div class="col-md-6 text-center text-md-end">
+                <p>Designed & Developed</p>
+                <p>by Joe Seabrook</p>
+                <a href="https://github.com/Jaycode88" target="_blank" class="footer-icon text-black"
+                    aria-label="Go to Developers GitHub profile"><i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.linkedin.com/in/joeseabrook/" target="_blank" class="footer-icon text-black"
+                    aria-label="Go to Developers linkedin profile"><i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>
+</div>
 
     <!-- Game Over Modal -->
     <div id="gameOverModal" class="modal">
