@@ -21,17 +21,23 @@ body {
     font-family: 'VT323', sans-serif;
     font-size: 28px !important;
     background-color: #cd1515 !important;
-    color: white;
+    color: black !important;
     padding: 10px 20px; /* Adjust padding as needed */
     margin: 5px; /* Adjust margin to create separation */
     border-radius: 5px; /* Optional: add rounded corners */
     text-align: center;
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Ensure the links are displayed as block elements within the inline layout */
+    border: #000 2px solid !important;
+}
+
+.active {
+    text-decoration: underline !important;
 }
 
 .nav-link:hover {
-    background-color: #a11313; /* Darken the background on hover for better interaction feedback */
+    background-color: #a11313 !important;  /* Darken the background on hover for better interaction feedback */
+    color: white !important; /* Change the text color to white on hover */
 }
 
 /* Game/Page title */
@@ -40,7 +46,7 @@ body {
 }
 
 .heading-back {
-    background-color: rgba(217, 217, 217, 0.9); /* d9d9d9 color with 80% opacity */
+    background-color: rgba(217, 217, 217, 0.9); /* d9d9d9 color with 90% opacity */
     padding: 10px; /* Optional: Add some padding to make the background more visible */
     border-radius: 5px; 
     display: inline-block;
@@ -48,6 +54,39 @@ body {
     font-family: 'VT323', sans-serif;
     font-size: 48px;
     color: black;
+}
+
+.btn {
+    font-family: 'VT323', sans-serif;
+    font-size: 28px !important;
+    background-color: #cd1515 !important;
+    color: black !important;
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin: 5px; /* Adjust margin to create separation */
+    border-radius: 5px; /* Optional: add rounded corners */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure the links are displayed as block elements within the inline layout */
+    border: #000 2px solid !important;
+}
+
+.btn:hover {
+    background-color: #a11313 !important;  /* Darken the background on hover for better interaction feedback */
+    color: white !important; /* Change the text color to white on hover */
+}
+
+/* Welcome Section */
+.welcome-container {
+    background-color: rgba(217, 217, 217, 0.9); /* d9d9d9 color with 90% opacity */
+    padding: 10px; /* Optional: Add some padding to make the background more visible */
+    border-radius: 5px; 
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'VT323', sans-serif;
+    font-size: 24px;
+    color: black;
+    width: 60% !important;
+
 }
 
 

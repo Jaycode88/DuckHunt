@@ -17,33 +17,44 @@
             <a class="navbar-brand" href="#">
                 <img src="/assets/images/dogduck.png" alt="Logo" width="80" height="80" class="d-inline-block align-text-center logo-text">
                 Duck Hunt
-              </a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">How to Play</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
-              </li>
-            </ul>
-          </div>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 me-5">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">How to Play</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">About</a>
+                </li>
+                </ul>
+            </div>
         </div>
-      </nav>
+    </nav>
 
-      <div class="container-fluid text-center heading-container">
-    <h1 class="heading-back">Duck Hunt</h1>
-    <br>
-    <h2 class="heading-back">A Remake of the NES Classic</h2>
-</div>
-    <h2>Score: <span id="score">0</span></h2>
+    <div class="container-fluid text-center heading-container">
+        <h1 class="heading-back">Duck Hunt</h1>
+        <br>
+        <h2 class="heading-back">A Remake of the NES Classic</h2>
+        <br>
+        <h2 class="heading-back">Score: <span id="score">0</span></h2>
+    </div>
 
+    <div class="container-fluid welcome-container">
+        <p>Step back in time and relive the excitement of the iconic NES game, Duck Hunt! We've brought the classic experience back to life, combining the nostalgia of the original with modern web technologies. Enjoy the timeless challenge of shooting ducks with your trusty zapper, now accessible right from your browser.</p>
+        <div class="text-center">
+            <button type="button" class="btn">How to play</button>
+            <button type="button" class="btn">Start Game</button>
+        </div>
+    
+    </div>
+    
+    <!-- Game Canvas -->
     <canvas id="gameCanvas"></canvas>
 
     <!-- Game Over Modal -->
