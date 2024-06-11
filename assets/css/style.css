@@ -5,6 +5,7 @@
 body {
 	overflow-x: hidden;
 	min-height: 100vh;
+    background-image: url("/assets/images/pixelretro.webp");
 }
 
 /* Navigation bar */
@@ -33,6 +34,21 @@ body {
     background-color: #a11313; /* Darken the background on hover for better interaction feedback */
 }
 
+/* Game/Page title */
+.heading-container {
+    margin-top: 10px;
+}
+
+.heading-back {
+    background-color: rgba(217, 217, 217, 0.9); /* d9d9d9 color with 80% opacity */
+    padding: 10px; /* Optional: Add some padding to make the background more visible */
+    border-radius: 5px; 
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: 'VT323', sans-serif;
+    font-size: 48px;
+    color: black;
+}
 
 
 
