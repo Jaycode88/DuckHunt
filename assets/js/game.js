@@ -1,12 +1,7 @@
 /**  make gameCanvas and score visible and hide welcome container when start game is clicked */
 document.getElementById('startGameBtn').addEventListener('click', function() {
-    document.querySelector('.welcome-container').style.display = 'none';
-    document.getElementById('gameCanvasContainer').style.display = 'block';
-    document.querySelector('.score-box').style.display = 'inline-block';
-    // Scroll the game canvas container into view
-    document.getElementById('gameCanvasContainer').scrollIntoView({ behavior: 'smooth' });
+    startGame();
 });
-
 
 
 // Get the canvas element and its context for drawing
@@ -234,19 +229,43 @@ function showGameOver() {
 // When the user clicks on <span> (x), close the modal
 closeModal.onclick = function() {
     gameOverModal.style.display = 'none';
+    document.querySelector('.welcome-container').style.display = 'block';
+    document.getElementById('gameCanvasContainer').style.display = 'none';
+    document.querySelector('.score-box').style.display = 'none';
+    resetGame(); // Reset the game state
 }
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == gameOverModal) {
         gameOverModal.style.display = 'none';
+        document.querySelector('.welcome-container').style.display = 'block';
+        document.getElementById('gameCanvasContainer').style.display = 'none';
+        document.querySelector('.score-box').style.display = 'none';
+        resetGame(); // Reset the game state
     }
 }
 
+//Reset the game state
+function resetGame() {
+    gameOver = false;
+    score = 0;
+    duckCounter = 0;
+    updateScore();
+    duck = null;
+}
+
+
 // Restart the game
 restartButton.onclick = function() {
-    location.reload();
-}
+    // Reset game state
+    gameOver = false;
+    score = 0;
+    duckCounter = 0;
+    updateScore();
+    gameOverModal.style.display = 'none'; // Hide the modal
+    startGame(); // Start a new game
+};
 
 /**
  * Update the game state and redraw the canvas.
@@ -290,6 +309,15 @@ function spawnDuck() {
     }
 }
 
-// Start the game by spawning the first duck and beginning the update loop
-spawnDuck();
-updateGame();
+// Start a new game function
+function startGame() {
+    document.querySelector('.welcome-container').style.display = 'none';
+    document.getElementById('gameCanvasContainer').style.display = 'block';
+    document.querySelector('.score-box').style.display = 'inline-block';
+    // Scroll the game canvas container into view
+    document.getElementById('gameCanvasContainer').scrollIntoView({ behavior: 'smooth' });
+
+    // Start the game by spawning the first duck and beginning the update loop
+    spawnDuck();
+    updateGame();
+}
