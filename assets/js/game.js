@@ -3,6 +3,18 @@ document.getElementById('startGameBtn').addEventListener('click', function() {
     startGame();
 });
 
+document.querySelectorAll('.how-to').forEach(button => {
+    button.addEventListener('click', function() {
+        var howToPlayModal = new bootstrap.Modal(document.getElementById('howToPlayModal'));
+        howToPlayModal.show();
+    });
+});
+
+document.getElementById('startGameFromModalBtn').addEventListener('click', function() {
+    var howToPlayModal = bootstrap.Modal.getInstance(document.getElementById('howToPlayModal'));
+    howToPlayModal.hide();
+    startGame();
+});
 
 // Get the canvas element and its context for drawing
 const canvas = document.getElementById('gameCanvas');

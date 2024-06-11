@@ -154,6 +154,10 @@ footer {
     
 }
 
+.footer-logo {
+    margin-left: 60px;
+}
+
 .footer-header {
     font-weight: bold;
     font-size: 24px;
@@ -183,6 +187,9 @@ footer {
 @media (max-width: 768px) {
     .text-md-start, .text-md-end {
         text-align: center !important;
+    }
+    .footer-logo {
+        margin-left: 0px;
     }
 }
 
@@ -245,4 +252,41 @@ footer {
 #restartButton:hover {
     background-color: #a11313 !important; /* Darker on hover */
     color: white !important;
+}
+
+/* How to play modal */
+.modal-content {
+    background-color: rgba(217, 217, 217, 0.9) !important; /* Grey background with 90% opacity */
+    border-radius: 15px; /* Rounded corners */
+    font-family: 'VT323', sans-serif;
+}
+
+.modal-header, .modal-footer {
+    border: none; /* Remove default Bootstrap borders */
+}
+
+.modal-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 32px;
+    color: black;
+}
+
+#gameRules {
+    font-size: 24px;
+    color: black;
+}
+
+#startGameFromModalBtn {
+    font-family: 'VT323', sans-serif;
+    font-size: 20px;
+    background-color: #cd1515;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: #000 2px solid;
+}
+
+#startGameFromModalBtn:hover {
+    background-color: #a11313; /* Darken the background on hover for better interaction feedback */
+    color: white; /* Change the text color to white on hover */
 }
