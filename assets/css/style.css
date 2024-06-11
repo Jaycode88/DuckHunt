@@ -115,14 +115,19 @@ body {
 
 /* Game container */
 #gameCanvasContainer {
-    background-color: rgba(217, 217, 217, 0.9); /* Grey background with 90% opacity */
-    padding: 20px;
-    border-radius: 15px; /* Adjust the radius as needed for rounded corners */
+    
     display: none;  /* Hide the container by default */
+    flex-direction: column; /* Arrange children in a column */
     justify-content: center; /* Center the canvas horizontally */
     align-items: center; /* Center the canvas vertically */
     margin: 20px auto; /* Center the container and add vertical margins */
     max-width: fit-content; /* Fit the container to the content */
+}
+
+.gameCanvasbackground {
+    background-color: rgba(217, 217, 217, 0.9); /* Grey background with 90% opacity */
+    padding: 20px;
+    border-radius: 15px; /* Adjust the radius as needed for rounded corners */
 }
 
 canvas {

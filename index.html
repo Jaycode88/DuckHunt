@@ -46,8 +46,6 @@
         <img src="/assets/images/dogduck.png" alt="Dog with Duck" width="200px" class="heading-back">
         <br>
         <h2 class="heading-back">A Remake of the NES Classic</h2>
-        <br>
-        <h2 class="heading-back score-box">Score: <span id="score">0</span></h2>
     </div>
 
     <div class="container-fluid welcome-container">
@@ -61,7 +59,10 @@
     
     <!-- Game Canvas -->
     <div id="gameCanvasContainer">
-        <canvas id="gameCanvas"></canvas>
+        <div class="text-center">
+        <h2 class="heading-back score-box">Score: <span id="score">0</span></h2></div>
+        <div class="gameCanvasbackground">
+        <canvas id="gameCanvas"></canvas></div>
     </div>
 
 
