@@ -1,9 +1,42 @@
+/*Import fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Press+Start+2P&family=VT323&display=swap');
+
 /* Body overflow hidden to stop horizontal scroll */
 body {
 	overflow-x: hidden;
 	min-height: 100vh;
 }
 
+/* Navigation bar */
+.navbar {
+    background-color: #d9d9d9;
+}
+
+.navbar-brand {
+    font-family: 'Press Start 2P', monospace;
+}
+
+.nav-link {
+    font-family: 'VT323', sans-serif;
+    font-size: 28px !important;
+    background-color: #cd1515 !important;
+    color: white;
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin: 5px; /* Adjust margin to create separation */
+    border-radius: 5px; /* Optional: add rounded corners */
+    text-align: center;
+    text-decoration: none; /* Remove underline */
+    display: inline-block; /* Ensure the links are displayed as block elements within the inline layout */
+}
+
+.nav-link:hover {
+    background-color: #a11313; /* Darken the background on hover for better interaction feedback */
+}
+
+
+
+
+/* Game container */
 canvas {
     width: 1000px;
     height: 571px;
@@ -14,7 +47,10 @@ canvas {
     position: relative;
 }
 
-/* Modal styles */
+
+
+
+/* game over Modal styles */
 .modal {
     display: none;
     position: fixed;
