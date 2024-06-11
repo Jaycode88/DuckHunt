@@ -28,7 +28,7 @@
                     <a class="nav-link active" aria-current="page" href="#">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">How to Play</a>
+                    <a class="nav-link how-to" href="#">How to Play</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
@@ -51,7 +51,7 @@
     <div class="container-fluid welcome-container">
         <p>Step back in time and relive the excitement of the iconic NES game, Duck Hunt! We've brought the classic experience back to life, combining the nostalgia of the original with modern web technologies. Enjoy the timeless challenge of shooting ducks with your trusty zapper, now accessible right from your browser.</p>
         <div class="text-center">
-            <button type="button" class="btn">How to play</button>
+            <button type="button" class="btn how-to">How to play</button>
             <button type="button" class="btn" id="startGameBtn">Start Game</button>
         </div>
     
@@ -72,7 +72,7 @@
         <div class="row">
             <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                 <p class="footer-header">Duck Hunt</p>
-                <img src="/assets/images/dogduck.png" alt="Logo" width="50px">
+                <img src="/assets/images/dogduck.png" class="footer-logo" alt="Logo" width="80px">
                 <p>A Remake of the Nes Classic</p>
             </div>
             <div class="col-md-6 text-center text-md-end">
@@ -100,6 +100,28 @@
             <button id="restartButton">Restart Game</button>
         </div>
     </div>
+
+    <!-- How to Play Modal -->
+    <div class="modal fade" id="howToPlayModal" tabindex="-1" aria-labelledby="howToPlayModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="howToPlayModalLabel">How to Play</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p id="gameRules">
+                        <!-- Insert game rules here -->
+                        Use your mouse to aim and click to shoot the ducks as they fly across the screen. Try to hit as many ducks as you can. When you shoot a Duck you will get 2 points. If you do not shoot the duck in time you will loose 1 point. There are a total of 15 ducks released. Good Luck!
+                    </p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button id="startGameFromModalBtn" class="btn">Start Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 
     <script type="module" src="assets/js/game.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
