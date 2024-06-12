@@ -1,8 +1,9 @@
-/**  make gameCanvas and score visible and hide welcome container when start game is clicked */
+/**  start game btn event listener */
 document.getElementById('startGameBtn').addEventListener('click', function() {
     startGame();
 });
 
+/** How To Modal event listener */
 document.querySelectorAll('.how-to').forEach(button => {
     button.addEventListener('click', function() {
         var howToPlayModal = new bootstrap.Modal(document.getElementById('howToPlayModal'));
@@ -10,11 +11,24 @@ document.querySelectorAll('.how-to').forEach(button => {
     });
 });
 
+/** Start game button in game over modal  */
 document.getElementById('startGameFromModalBtn').addEventListener('click', function() {
     var howToPlayModal = bootstrap.Modal.getInstance(document.getElementById('howToPlayModal'));
     howToPlayModal.hide();
     startGame();
 });
+
+/* About link event listener */
+document.querySelectorAll('.about-link').forEach(link => {
+    link.addEventListener('click', function(event) {
+        if (this.textContent.trim() === 'About') {
+            event.preventDefault(); // Prevent default anchor behavior
+            var aboutModal = new bootstrap.Modal(document.getElementById('aboutModal'));
+            aboutModal.show();
+        }
+    });
+});
+
 
 // Get the canvas element and its context for drawing
 const canvas = document.getElementById('gameCanvas');
@@ -22,7 +36,7 @@ const ctx = canvas.getContext('2d');
 
 // Initialize the score and the duck object
 let score = 0;
-let duck = null; // Only one duck
+let duck = null; // Only one duck 
 const scoreDisplay = document.getElementById('score');
 
 // Modal elements
@@ -209,7 +223,7 @@ function handleDogDuckAndNextDuck(x, y) {
                 showGameOver();
             }
         }, 500); // Additional delay before spawning the next duck or showing game over
-    }, 1000); // DogDuck stays for 1 second
+    }, 2000); // DogDuck stays for 2 seconds
 }
 
 /** Handle dog laugh animation when duck is not shot */
@@ -226,7 +240,7 @@ function handleDogAndNextDuck() {
                 showGameOver();
             }
         }, 500); // Additional delay before spawning the next duck or showing game over
-    }, 1000); // DogLaugh stays for 1 second
+    }, 2000); // DogLaugh stays for 2 seconds
 }
 
 /**
@@ -238,7 +252,7 @@ function showGameOver() {
     gameOverModal.style.display = 'block';
 }
 
-// When the user clicks on <span> (x), close the modal
+// When the user clicks on (x), close the modal
 closeModal.onclick = function() {
     gameOverModal.style.display = 'none';
     document.querySelector('.welcome-container').style.display = 'block';
@@ -275,7 +289,7 @@ restartButton.onclick = function() {
     score = 0;
     duckCounter = 0;
     updateScore();
-    gameOverModal.style.display = 'none'; // Hide the modal
+    gameOverModal.style.display = 'none'; // Hide the game over modal
     startGame(); // Start a new game
 };
 

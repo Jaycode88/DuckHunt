@@ -8,7 +8,7 @@ body {
     background-image: url("/assets/images/pixelretro.webp");
     position: relative;
 }
-
+ /* Overlay to dull colour of Background */
 .background-overlay {
     position: fixed;
     top: 0;
@@ -20,6 +20,7 @@ body {
     pointer-events: none; /* Ensures the overlay doesn't interfere with user interactions */
 }
 
+/* Content container This is used on all content sections to ensure they are infront of the overlay */
 .content {
     position: relative;
     z-index: 2; /* Make sure content is above the overlay */
@@ -39,9 +40,9 @@ body {
     font-size: 28px !important;
     background-color: #cd1515 !important;
     color: black !important;
-    padding: 10px 20px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin to create separation */
-    border-radius: 5px; /* Optional: add rounded corners */
+    padding: 10px 20px; /*padding for button effect */
+    margin: 5px; /* margin to seperate links/buttons */
+    border-radius: 5px; /* rounded corners */
     text-align: center;
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Ensure the links are displayed as block elements within the inline layout */
@@ -53,18 +54,18 @@ body {
 }
 
 .nav-link:hover {
-    background-color: #a11313 !important;  /* Darken the background on hover for better interaction feedback */
+    background-color: #a11313 !important;  /* Darken the background on hover */
     color: white !important; /* Change the text color to white on hover */
 }
 
 /* Game/Page title */
 .heading-container {
-    margin-top: 10px;
+    margin-top: 10px; /* space between page heaer and navbar */
 }
 
 .heading-back {
     background-color: rgba(217, 217, 217, 0.9); /* d9d9d9 color with 90% opacity */
-    padding: 10px; /* Optional: Add some padding to make the background more visible */
+    padding: 10px; /* padding to make the background more visible */
     border-radius: 5px; 
     display: inline-block;
     margin-bottom: 10px;
@@ -83,9 +84,9 @@ body {
     font-size: 28px !important;
     background-color: #cd1515 !important;
     color: black !important;
-    padding: 10px 20px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin to create separation */
-    border-radius: 5px; /* Optional: add rounded corners */
+    padding: 10px 20px;
+    margin: 5px; /* margin to create separation */
+    border-radius: 5px; /* rounded corners */
     text-align: center;
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Ensure the links are displayed as block elements within the inline layout */
@@ -93,17 +94,17 @@ body {
 }
 
 .btn:hover, .footer-icon:hover {
-    background-color: #a11313 !important;  /* Darken the background on hover for better interaction feedback */
+    background-color: #a11313 !important;  /* Darken the background on hover */
     color: white !important; /* Change the text color to white on hover */
 }
 
 /* Welcome Section */
 .welcome-container {
     background-color: rgba(217, 217, 217, 0.9); /* d9d9d9 color with 90% opacity */
-    padding: 10px; /* Optional: Add some padding to make the background more visible */
+    padding: 10px; /* padding to make the background more visible */
     border-radius: 5px; 
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 10px; /* Space between welcome section and Footer */
     font-family: 'VT323', sans-serif;
     font-size: 24px;
     color: black;
@@ -127,7 +128,7 @@ body {
 .gameCanvasbackground {
     background-color: rgba(217, 217, 217, 0.9); /* Grey background with 90% opacity */
     padding: 20px;
-    border-radius: 15px; /* Adjust the radius as needed for rounded corners */
+    border-radius: 15px; /* rounded corners */
 }
 
 canvas {
@@ -146,9 +147,9 @@ footer {
     background-color: #d9d9d9;
     text-align: center;
     width: 100%;
-    padding: 5px 0; /* Add padding for spacing */
-    position: relative; /* Change from fixed to relative */
-    margin-top: 10px; /* Add top margin to create space between content and footer */
+    padding: 5px 0; /*  padding for spacing */
+    position: relative; 
+    margin-top: 10px; /* top margin to create space between content and footer */
     font-family: 'VT323', sans-serif;
     font-size: 18px;
     font-weight: bold;
@@ -171,9 +172,9 @@ footer {
     margin-left: 5px;
     margin-right: 5px;
     background-color: #cd1515;
-    padding: 5px 5px; /* Adjust padding as needed */
-    margin: 5px; /* Adjust margin to create separation */
-    border-radius: 5px; /* Optional: add rounded corners */
+    padding: 5px 5px; 
+    margin: 5px; /* margin to create separation */
+    border-radius: 5px; /* rounded corners */
     text-align: center;
     text-decoration: none; /* Remove underline */
     display: inline-block; /* Ensure the links are displayed as block elements within the inline layout */
@@ -213,7 +214,7 @@ footer {
     margin: 15% auto;
     padding: 20px;
     border: 1px solid #000; /* Darker border */
-    width: 50%; /* Adjusted width */
+    width: 50%; 
     max-width: 500px; /* Maximum width for larger screens */
     border-radius: 10px; /* Rounded corners */
     text-align: center;
@@ -235,13 +236,13 @@ footer {
 }
 
 #finalScore {
-    font-size: 24px; /* Larger font for better visibility */
+    font-size: 24px; 
     margin: 20px 0;
 }
 
 #restartButton {
     font-family: 'VT323', sans-serif;
-    font-size: 28px !important; /* Adjusted button font size */
+    font-size: 28px !important; /*  button font size */
     background-color: #cd1515 !important;
     color: black !important;
     padding: 10px 20px;
@@ -288,6 +289,38 @@ footer {
 }
 
 #startGameFromModalBtn:hover {
-    background-color: #a11313; /* Darken the background on hover for better interaction feedback */
+    background-color: #a11313; /* Darken the background on hover  */
     color: white; /* Change the text color to white on hover */
+}
+
+/* About Modal */
+#aboutModal .modal-dialog, #howToPlayModal .modal-dialog {
+    background-color: rgba(217, 217, 217, 0.9); /* Grey background with 90% opacity */
+    border-radius: 15px; /* Rounded corners */
+}
+
+.modal-content {
+    border-radius: 15px; /* Rounded corners */
+    font-family: 'VT323', sans-serif;
+}
+
+.modal-header, .modal-footer {
+    border: none; /* Remove default Bootstrap borders */
+}
+
+.modal-title {
+    font-family: 'Press Start 2P', monospace;
+    font-size: 32px;
+    color: black;
+}
+
+#gameRules, .aboutContent {
+    font-size: 24px;
+    color: black;
+}
+
+/* Custom backdrop style */
+.modal-backdrop.show {
+    opacity: 0.9 !important; /* opacity */
+    background-color: rgba(217, 217, 217, 0.9) !important; /* Grey background */
 }
