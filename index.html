@@ -31,7 +31,7 @@
                     <a class="nav-link how-to" href="#">How to Play</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
+                    <a class="nav-link about-link" href="#">About</a>
                 </li>
                 </ul>
             </div>
@@ -111,12 +111,39 @@
                 </div>
                 <div class="modal-body text-center">
                     <p id="gameRules">
-                        <!-- Insert game rules here -->
+                        <!-- game rules -->
                         Use your mouse to aim and click to shoot the ducks as they fly across the screen. Try to hit as many ducks as you can. When you shoot a Duck you will get 2 points. If you do not shoot the duck in time you will loose 1 point. There are a total of 15 ducks released. Good Luck!
                     </p>
                 </div>
                 <div class="modal-footer justify-content-center">
                     <button id="startGameFromModalBtn" class="btn">Start Game</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title" id="aboutModalLabel">About</h2>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="aboutContent">
+                        <!--  about content -->
+                        This version of Duck Hunt was built using HTML, CSS, and JavaScript. It is the second iteration of the game, featuring improved gameplay and enhanced visuals. Future updates are planned to add more features and refine the user experience. Stay tuned for more exciting updates!
+                    </p>
+                    <p class="aboutContent">Designed & Developed</p>
+                    <p class="aboutContent">By Joe Seabrook</p>
+                    <a href="https://github.com/Jaycode88" target="_blank" class="footer-icon text-black"
+                    aria-label="Go to Developers GitHub profile"><i class="fa-brands fa-github"></i>
+                    </a>
+
+                    <a href="https://www.linkedin.com/in/joeseabrook/" target="_blank" class="footer-icon text-black"
+                        aria-label="Go to Developers linkedin profile"><i class="fab fa-linkedin-in"></i>
+                    </a>
                 </div>
             </div>
         </div>
