@@ -5,7 +5,7 @@
 body {
 	overflow-x: hidden;
 	min-height: 100vh;
-    background-image: url("/assets/images/pixelretro.webp");
+    background-image: url("../assets/images/pixelretro.webp");
     position: relative;
 }
  /* Overlay to dull colour of Background */
@@ -137,9 +137,9 @@ canvas {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
-    background: url("/assets/images/1000pxwidth-background-dall-e.webp");
+    background: url("../assets/images/1000pxwidth-background-dall-e.webp");
     position: relative;
-    cursor: url("/assets/images/75pxwidth-targetcursor.png"), auto;
+    cursor: url("../assets/images/75pxwidth-targetcursor.png"), auto;
 }
 
 /* Footer */
